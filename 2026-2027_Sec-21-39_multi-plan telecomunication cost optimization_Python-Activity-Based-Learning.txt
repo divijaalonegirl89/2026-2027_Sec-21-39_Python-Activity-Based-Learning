@@ -1,0 +1,40 @@
+
+plans = [
+    ["Plan A", 199, 2, 1, 28],
+    ["Plan B", 299, 3, 2, 56],
+    ["Plan C", 399, 5, 1, 84]
+]
+
+data_used = 2
+calls_used = 1
+budget = 350
+validity_needed = 28
+
+best_plan = ""
+lowest_cost = 99999
+
+for p in plans:
+    name, price, data, calls, validity = p
+
+    cost = price
+
+    if data_used > data:
+        cost += (data_used - data) * 100
+
+    if calls_used > calls:
+        cost += (calls_used - calls) * 50
+
+    if price <= budget and validity >= validity_needed:
+        if cost < lowest_cost:
+            lowest_cost = cost
+            best_plan = name
+
+    print(name, "Total Cost: Rs.", cost)
+
+print("----------------------")
+
+if best_plan != "":
+    print("Best Plan:", best_plan)
+    print("Lowest Cost: Rs.", lowest_cost)
+else:
+    print("No suitable plan found")
