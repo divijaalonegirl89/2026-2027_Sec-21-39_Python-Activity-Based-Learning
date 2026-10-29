@@ -1,0 +1,31 @@
+
+patients = [
+    ["Rahul", 500, 1000, 2000],
+    ["Priya", 300, 500, 1000],
+    ["Arun", 700, 1500, 3000]
+]
+
+for p in patients:
+    name, consultation, diagnostic, treatment = p
+
+    total = consultation + diagnostic + treatment
+
+    if total > 3000:
+        discount = total * 0.10
+    else:
+        discount = 0
+
+    bill = total - discount
+
+    if bill >= 3000:
+        category = "High Bill"
+    elif bill >= 1500:
+        category = "Medium Bill"
+    else:
+        category = "Low Bill"
+
+    print("Patient:", name)
+    print("Total Bill: Rs.", bill)
+    print("Category:", category)
+    print("--------------------")
+
